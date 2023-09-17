@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="graph_container">
+    <h1>脆弱性報告数の推移</h1>
+    <form method="POST">
+        <label for="start_year">開始年:</label>
+        <select id="start_year" name="start_year" required>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <!-- 他の年を追加 -->
+        </select>
+        <label for="start_month">開始月:</label>
+        <select id="start_month" name="start_month" required>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <!-- 他の月を追加 -->
+        </select>
+        <label for="end_year">終了年:</label>
+        <select id="end_year" name="end_year" required>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <!-- 他の年を追加 -->
+        </select>
+        <label for="end_month">終了月:</label>
+        <select id="end_month" name="end_month" required>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <!-- 他の月を追加 -->
+        </select>
+        <input type="submit" value="表示">
+    </form>
+    <h3>選択された期間：{{start_year}}年{{start_month}}月から{{end_year}}年{{end_month}}月</h3>
+    <!-- グラフを表示するためのdiv要素 -->
+    {{ graph_html|safe }}
+    <br>
+    {{ graph_line | safe }}
+    <p>
+        <a href="/graph">リセット</a>
+        <a href="/">ホームに戻る</a>
+    </p>
+</div>
+
+{% endblock %}

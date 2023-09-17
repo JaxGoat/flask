@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="search_container">
+    <br><br>
+    <a href="/">戻る</a>
+    <!-- Plotlyのスクリプトとスタイルを読み込む -->
+    <center>{{ graph | safe }}</center>
+    <br>
+    <p class="response">{{ response }}</p>
+    <br>
+</div>
+{% endblock %}
+<!--height"vh"は数字が小さくなると図が大きくなる-->

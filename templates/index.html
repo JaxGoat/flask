@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <!--ヘッダー-->
+    <div class="header">
+        <h2>グラフィックCVSS</h2>
+    </div>
+    <!--内容ー-->
+    <div class="content">
+        <div classs="graph">
+            <h1><a href="/graph">年月別脆弱性報告数推移のグラフ化サイト</a></h1>
+        </div>
+        <h2></h2>
+        <br>
+        <div class="search">
+            <h3>キーワード、ベンダーで脆弱性を調べることができます！！</h3>
+            <form method="get" enctype="multipart/form-data" action="/search">
+            <input type="textarea" name="keyword" placeholder="キーワードを入力して下さい" style="width: 200px">
+            <input type="submit" value="search">
+            <input type="text" id="search-input" name="vendor" placeholder="ベンダー名を入力してください" style="width: 200px;">
+            </form>
+            <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script src="{{url_for('static', filename='./js/list.js')}}"></script>
+            <script src="{{url_for('static', filename='./js/search.js')}}"></script><br>
+            <button onclick="location.href='/'" style="margin: 15px;">リセット</button>
+        </div>
+    </div>
+    <!--フッター-->
+    <div class="footer">
+        <p>こちらはフッターです</p>
+    </div>
+</div>
+
+ {% endblock %}
